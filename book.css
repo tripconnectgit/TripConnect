@@ -1,0 +1,227 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family:serif;
+}
+
+
+/***************************************Nav Bar******************************************/
+#nav-bar
+{
+    
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar{
+    background-image: linear-gradient(to right,#000000, #000000);
+    padding: 0 !important; 
+}
+
+.navbar-brand1 img
+{
+    height: 45px;
+}
+
+.navbar-brand img
+{
+    height: 45px;
+}
+
+
+.navbar-nav li
+{
+    padding: 0 10px;
+}
+
+.navbar-nav li a
+{
+   color: #fff;
+   font-weight: 600;
+   float: right;
+   text-align: left;
+}
+
+.fa-bars
+{
+    color: #fff;
+    font-size: 30px; 
+}
+
+.navbar-toggler
+{
+    outline: none !important;
+}
+.navbar-brand img:hover
+{
+    transform:scale(1.1) ;
+}
+
+
+/*------------------------Book now-----------------------------*/
+.form-cs{
+    padding: 25px;
+}
+
+.form-cs1{
+    padding: 25px;
+
+}
+
+.form-group{
+    font-weight: bold;
+}
+.btn{
+    margin-top: 5px;
+}
+.enquire{
+    padding-left: 10px;
+}
+
+
+
+/* Example CSS to adjust Font Awesome icon */
+.confirmation-message {
+    display: none; /* Initially hide the confirmation message */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+/*table*/
+
+.table-box
+{
+    margin: 50px auto;
+}
+
+.p
+{
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+
+.table-row1
+{
+    display: table;
+    width: 80%;
+    margin: 10px auto;
+    font-family:Calibri;
+    background:transparent;
+    padding: 12px 0;
+    color: #040404;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
+}
+
+.table-cell1
+{
+    display: table-cell;
+    width: 30%;
+    text-align: center; 
+    padding: 4px 0;
+    border-right: 1px solid #d6d4d4;
+    vertical-align: middle;
+   
+}
+
+.table-head1
+{
+    background: #338cb5;
+    box-shadow: none;
+    color:#fff;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+
+.table-row2
+{
+    display: table;
+    width: 80%;
+    margin: 10px auto;
+    font-family:Calibri;
+    background:transparent;
+    padding: 12px 0;
+    color: #040404;
+    font-size: 13px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
+}
+
+.table-cell2
+{
+    display: table-cell;
+    width: 30%;
+    text-align: center; 
+    padding: 4px 0;
+    border-right: 1px solid #d6d4d4;
+    vertical-align: middle;
+}
+
+.table-head2
+{
+    background: #21b57f;
+    box-shadow: none;
+    color:#fff;
+    font-weight: 1000;
+    font-size: 25px;
+
+}
+
+
+.table-row
+{
+    display: table;
+    width: 70%;
+    margin: 10px auto;
+    font-family: sans-serif;
+    background:transparent;
+    padding: 12px 0;
+    color: #080808;
+    font-size: 13px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
+    font-size: 15px;
+}
+
+.table-cell
+{
+    display: table-cell;
+    width: 30%;
+    text-align: center; 
+    padding: 4px 0;
+    border-right: 1px solid #d6d4d4;
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.table-head
+{
+    background: #585757;
+    box-shadow: none;
+    color:#fff;
+    font-weight: 600;
+}
+
+.table-head .table-cell
+{
+    border-right: none;
+}
+
+.last-cell
+{
+    border-right: none;
+}
+
+.proceedbtn
+{
+    padding-left: 46%;
+}

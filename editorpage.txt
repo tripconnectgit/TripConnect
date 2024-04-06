@@ -1,0 +1,367 @@
+ ERRORS:
+
+ 1.Wave Image is not responsive (Resolved 80% using an extra white Box image under the wave)
+ 2.Taxi description
+ 3.Google sheet to Gmail/Phone (installed gsheet in the mobile phone)
+ 4.Whatsapp Link (Link is adedd but not working in laptop)
+
+
+Google Sheet Info
+1) Deployment ID: AKfycbzUbxUh9vO9jo_gKMcO1yFUrQoE3-QEC40ZsoPNog2EAS5w_HCRiHUWrxEa-iez7jcY
+
+2) url:https://script.google.com/macros/s/AKfycbzUbxUh9vO9jo_gKMcO1yFUrQoE3-QEC40ZsoPNog2EAS5w_HCRiHUWrxEa-iez7jcY/exec
+
+
+form-data
+1) Deploymentid:AKfycbx_L53Yx5aAvYUvholHoAKH4tylXZ4soZocEBJ3e0H2sdlW47dtqNTWY0yQJKd8W6H-
+2)yrl: https://script.google.com/macros/s/AKfycbx_L53Yx5aAvYUvholHoAKH4tylXZ4soZocEBJ3e0H2sdlW47dtqNTWY0yQJKd8W6H-/exec
+
+
+
+
+
+
+const sheetName = 'form data'
+const scriptProp = PropertiesService.getScriptProperties()
+
+function intialSetup () {
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+  scriptProp.setProperty('key', activeSpreadsheet.getId())
+}
+
+function doPost (e) {
+  const lock = LockService.getScriptLock()
+  lock.tryLock(10000)
+
+  try {
+    const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
+    const sheet = doc.getSheetByName(sheetName)
+
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+    const nextRow = sheet.getLastRow() + 1
+
+    const newRow = headers.map(function(header) {
+      return header === 'Date' ? new Date() : e.parameter[header]
+    })
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON)
+  }
+
+  catch (e) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
+      .setMimeType(ContentService.MimeType.JSON)
+  }
+
+  finally {
+    lock.releaseLock()
+  }
+}
+
+
+
+
+
+
+
+
+
+style.css
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family:serif;
+}
+.navbar-nav
+{
+    margin-left: auto;
+    font-family:Segoe UI ;
+    font-size: 17px;
+    font-weight: 400;
+    padding: auto;
+    
+}
+
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar{
+    background-image: linear-gradient(to right,#000000, #000000);
+    padding: 0 !important; 
+}
+
+
+.navbar-brand img
+{
+    height: 60px;
+    padding-left: 20px;
+}
+
+.navbar-nav li
+{
+    padding: 0 15px;
+}
+
+.navbar-nav li a
+{
+   color: #fff;
+   font-weight: 600;
+   float: right;
+   text-align: left;
+}
+
+.fa-bars
+{
+    color: #0e0e0e;
+    font-size: 30px; 
+}
+
+.navbar-toggler
+{
+    outline: none !important;
+}
+
+.bottom-img{
+    width: 100%;
+}
+
+/*------------------------Banner Section------------------------Segoe UI-----*/
+
+#banner
+{
+    background-image: linear-gradient(to right,#000000, #000000);
+    color: #fff;
+    padding-top:10%; 
+    height: 700px;  
+}
+
+.promo-title
+{
+    font-size: 40px;
+    font-family: Segoe UI;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.play-btn
+{
+    width: 45px;
+    margin: 20px;
+}
+
+#banner a
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+.bottom-img
+{
+    width: 100%;
+}
+
+
+/*------------------------Services Section-----------------------------*/
+
+#services
+{
+    padding: 80px 0;
+    
+}
+.service-img
+{
+    width: 200px;
+    height: 200px;
+   
+    background-size: contain;
+    border-radius: 10px;
+}
+
+
+.service-img:hover {
+    background-color: #ffffff; /* Change background color on hover */
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.5); /* Add box-shadow on hover */
+    transform: scale(1.1);
+}
+
+
+
+
+.services
+{
+    padding: 20px;
+}
+
+.services h4
+{
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: capitalize;
+    font-family:Segoe UI ;
+    font-weight: 600;
+}
+
+
+#services .btn-primary
+{
+    box-shadow: none;
+    padding: 8px 25px;
+    border: solid;
+    border-radius: 2px;
+    background-image: linear-gradient(to right,#4b795a, #2525249a);
+}
+
+.para-align
+{
+    font-family: Segoe UI;
+    text-align: justify;
+    margin: 20px;
+    line-height: 1.7;
+}
+
+/*------------------------About-us Section-----------------------------*/
+
+#about-us
+{
+    padding-bottom: 50px;
+    background: #ffffff;
+    padding-top: 70px;
+}
+
+.about-title
+{
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 8%;
+    font-family: Segoe UI;
+    
+}
+
+.aboutpara
+{
+    font-family: Segoe UI;
+    text-align: justify;
+    margin: 20px;
+    line-height: 1.7;
+}
+.aboutimg{
+    width: 80%;
+    margin-left: 120px;
+}
+
+/*------------------------Social-Media Section-----------------------------*/
+
+#social-media
+{
+    background: #ffffff;
+    padding: 100px 0;
+}
+
+#social-media p
+{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.social-icons img
+{
+    width: 100px;
+    transition: 0.5s;
+    margin-right: 30px;
+}
+
+.social-icons a:hover img
+{
+    transform: translateY(-10px);
+}
+
+
+/*------------------------Footer Section-----------------------------*/
+#footer
+{
+    background-image: linear-gradient(to right,#000000, #000000);
+    color: #fff;
+
+}
+
+.footer-box
+{
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+   
+}
+
+
+.footer-box .fa 
+{
+    margin-right: 8px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 2px;
+    background-image: radial-gradient(to right,#4b795a, #2525249a);
+}
+
+
+
+/*------------------------Taxi  Section-----------------------------*/
+
+#banner-taxi
+{
+    background-image: linear-gradient(to right,#4b795a, #2525249a);
+    color: #fff;
+    padding-top:10%; 
+    height: 2000px;  
+}
+
+
+
+
+/***************************************Tour Package******************************************/
+.bg
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+table:
+
+<section id="table">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">\
+               
+            </div>
+        
+        </div>
+    </div>
+</section>
